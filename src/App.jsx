@@ -9,9 +9,12 @@ function App() {
   const Heading = () => <h1>YO!</h1>
   return (
     <div className="App">
-        <Heading/>
-        <Person/>
+        {/* <Heading/>
+        <Person/> */}
         {/* {Person()} DODGY */}
+
+        {/* PROPS TOPIC: */}
+        {/* Props example 1 with products */}
         <Products/>
         <Products 
         name="Pepsi"
@@ -23,6 +26,7 @@ function App() {
         price={3.00}
         descript="again, another drink"
         />
+        {/* Props example 1 with parent, child & baby */}
         <Parent/>
     </div>
   );
