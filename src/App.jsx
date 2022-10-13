@@ -1,14 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import Person from './Person';
-import Products from './Components/Props/Products';
-import Parent from './Components/Props/Parent';
+// import Person from './Person';
+// import Products from './Components/Props/Products';
+// import Parent from './Components/Props/Parent';
 import TrueFalse from './Components/States/TrueFalse';
 import Counter from './Components/States/Counter';
 
 function App() {
 
-  const Heading = () => <h1>YO!</h1>
+  // const Heading = () => <h1>YO!</h1>
   return (
     <div className="App">
 

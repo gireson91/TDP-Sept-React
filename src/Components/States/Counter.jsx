@@ -2,19 +2,20 @@ import { useState } from "react";
 
 function Counter(){
 
-    const [count, setCount] = useState();
+    const [count, setCount] = useState(0);
 
     const handleChange=(event)=>{
-        setCount(event.target.value)
-        console.log(event);
+        console.log("EVENT:", event);
+        const newCount = parseInt(event.target.value);
+        setCount(newCount)
     }
 
     return(
         <>
-        <input type="number" value={count} onChange={handleChange}/>
-        <button onClick={()=>setCount(parseInt(count)+1)}>increment 1</button>
-        <button onClick={()=>setCount(parseInt(count)-1)}>decrement 1</button>
-        <button onClick={()=>setCount(0)}>reset</button>
+            <input type="number" value={count} onChange={handleChange}/>
+            <button onClick={() => setCount(count + 1)}>+1</button>
+            <button onClick={() => setCount(count - 1)}>-1</button>
+            <button onClick={() => setCount(0)}>reset</button>
         </>
     )
 
