@@ -1,12 +1,9 @@
-function Person() {
-    const me = {
-        name: "Jordan",
-        age: 28
-      }
+function Person(props) {
     return (
         <div>
-            <p>Name: {me.name}</p>
-            <p>Age {me.age}</p>
+            <p>Name: {props.name}</p>
+            <p>Age {props.age}</p>
+            <p>Job: {props.job}</p>
         </div>
     )
 }

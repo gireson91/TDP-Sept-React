@@ -2,20 +2,44 @@ import { useState } from "react";
 
 function Counter(){
 
-    const [count, setCount] = useState(0);
+    const [counter, setCounter] = useState({
+        count: 0,
+        history: []
+    });
 
-    const handleChange=(event)=>{
+    const handleChange= (event) => {
         console.log("EVENT:", event);
         const newCount = parseInt(event.target.value);
-        setCount(newCount)
+        const newHistory = counter.history;
+        newHistory.push(newCount);
+        
+        setCounter({
+            count: newCount,
+            history: newHistory
+        })
+
+    }
+
+    const handleClick = (event) => {
+        const countChange = parseInt(event.target.innerText);
+        const newCount = counter.count + countChange;
+        const newHistory = counter.history;
+        newHistory.push(newCount);
+    
+        setCounter({
+            count: newCount,
+            history: newHistory
+        });
     }
 
     return(
         <>
-            <input type="number" value={count} onChange={handleChange}/>
-            <button onClick={() => setCount(count + 1)}>+1</button>
-            <button onClick={() => setCount(count - 1)}>-1</button>
-            <button onClick={() => setCount(0)}>reset</button>
+            <input type="number" value={counter.count} onChange={handleChange}/>
+            <button onClick={handleClick}>+1</button>
+            <button onClick={handleClick}>-1</button>
+            {/* <button onClick={() => setCount(0)}>reset</button> */}
+            <h2>History:</h2>
+            <p>{counter.history.toString()}</p>
         </>
     )
 
