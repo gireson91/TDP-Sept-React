@@ -5,8 +5,10 @@ import './App.css';
 // import TrueFalse from './Components/States/TrueFalse';
 // import Counter from './Components/States/Counter';
 // import Converter from './Components/States/Converter';
-import Person from './Person';
-import people from './people.json';
+import Person from './Components/Static-Data/Person';
+import people from './Components/Static-Data/people.json';
+import Poke from './Components/Data-Requests/Poke';
+import Counter from './Components/States/Counter';
 
 function App() {
 
@@ -30,13 +32,14 @@ function App() {
       {/* <Heading/> */}
       {/* <Converter/> */}
       {/* <TrueFalse/> */}
-      {/* <Counter/> */}
-      {
+      <Counter/>
+      {/* {
         people.map(person => {
           console.log("PERSON:", person);
           return <Person key={person.name + person.age} name={person.name} age={person.age} job={person.job}/>;
         })
-      }
+      } */}
+      {/* <Poke /> */}
     </div>
   );
 }
