@@ -4,34 +4,34 @@ import './App.css';
 // import Parent from './Components/Props/Parent';
 import TrueFalse from './Components/States/TrueFalse';
 import Counter from './Components/States/Counter';
+import Converter from './Components/States/Converter';
 
 function App() {
 
-  // const Heading = () => <h1>YO!</h1>
+  const Heading = () => <h1>YO!</h1>
+
+  const Me = (props) => {
+    console.log("PROPS:", props);
+   return (
+    <>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
+      <p>Job: {props.job}</p>
+    </>
+
+  )};
   return (
     <div className="App">
 
+      {/* <Me name="Jordan" age={28} job="Trainer"/> */}
+      {/* {Me({ name: "JH", age: 28, job: "Trainer"})} */}
       
-        {/* <Heading/>
-        <Person/> */}
-        {/* {Person()} DODGY */}
+      {/* {Heading()} */}
+        {/* <Heading/> */}
+  
+        <Converter/>
 
-        {/* PROPS TOPIC: */}
-        {/* Props example 1 with products */}
-        {/* <Products/> */}
-        {/* <Products 
-        name="Pepsi"
-        price={1.50}
-        descript="another drink"
-        />
-         <Products 
-        name="Fanta"
-        price={3.00}
-        descript="again, another drink"
-        /> */}
-        {/* Props example 1 with parent, child & baby */}
-        {/* <Parent/> */}
-        <TrueFalse/>
+        {/* <TrueFalse/> */}
         <Counter/>
     </div>
   );
