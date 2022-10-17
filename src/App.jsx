@@ -5,25 +5,13 @@ import './App.css';
 // import TrueFalse from './Components/States/TrueFalse';
 // import Counter from './Components/States/Counter';
 // import Converter from './Components/States/Converter';
-import Person from './Components/Static-Data/Person';
-import people from './Components/Static-Data/people.json';
-import Poke from './Components/Data-Requests/Poke';
-import Counter from './Components/States/Counter';
+// import Person from './Components/Static-Data/Person';
+// import people from './Components/Static-Data/people.json';
+// import Poke from './Components/Data-Requests/Poke';
+// import Counter from './Components/States/Counter';
+import OMDB from './Components/Data-Requests/OMDB';
 
 function App() {
-
-  const Heading = () => <h1>YO!</h1>
-
-  const Me = (props) => {
-    console.log("PROPS:", props);
-   return (
-    <>
-      <p>Name: {props.name}</p>
-      <p>Age: {props.age}</p>
-      <p>Job: {props.job}</p>
-    </>
-
-  )};
   return (
     <div className="App">
       {/* <Me name="Jordan" age={28} job="Trainer"/> */}
@@ -36,10 +24,15 @@ function App() {
       {/* {
         people.map(person => {
           console.log("PERSON:", person);
-          return <Person key={person.name + person.age} name={person.name} age={person.age} job={person.job}/>;
+          return <Person
+          key={person.name + person.age}
+          name={person.name}
+          age={person.age}
+          job={person.job}/>;
         })
       } */}
-      <Poke />
+      {/* <Poke /> */}
+      <OMDB />
     </div>
   );
 }
