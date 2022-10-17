@@ -32,14 +32,14 @@ function App() {
       {/* <Heading/> */}
       {/* <Converter/> */}
       {/* <TrueFalse/> */}
-      <Counter/>
+      {/* <Counter/> */}
       {/* {
         people.map(person => {
           console.log("PERSON:", person);
           return <Person key={person.name + person.age} name={person.name} age={person.age} job={person.job}/>;
         })
       } */}
-      {/* <Poke /> */}
+      <Poke />
     </div>
   );
 }
