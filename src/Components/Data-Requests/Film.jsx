@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
+
 function Film({ title, year, poster }) {
   return (
     <>
@@ -14,3 +15,9 @@ function Film({ title, year, poster }) {
 }
 
 export default Film;
+
+Film.propTypes = {
+  title: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+};
