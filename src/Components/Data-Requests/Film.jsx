@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
+import Heading from './Heading';
 
 function Film({ title, year, poster }) {
   return (
     <>
-      <p>
-        {`Title: ${title}`}
-      </p>
+      <Heading text={title} />
       <p>
         {`Year: ${year}`}
       </p>

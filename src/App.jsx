@@ -9,7 +9,8 @@ import './App.css';
 // import people from './Components/Static-Data/people.json';
 // import Poke from './Components/Data-Requests/Poke';
 // import Counter from './Components/States/Counter';
-import OMDB from './Components/Data-Requests/OMDB';
+// import OMDB from './Components/Data-Requests/OMDB';
+import SearchableList from './Components/Lifting-State/SearchableList';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
         })
       } */}
       {/* <Poke /> */}
-      <OMDB />
+      {/* <OMDB /> */}
+      <SearchableList />
     </div>
   );
 }

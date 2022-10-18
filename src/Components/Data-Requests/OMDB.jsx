@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import Film from './Film';
 
+const key = '335035be';
+
 function OMDB() {
   const [title, setTitle] = useState('');
   const [films, setFilms] = useState([]);
