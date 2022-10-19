@@ -8,13 +8,45 @@ import './App.css';
 // import Person from './Components/Static-Data/Person';
 // import people from './Components/Static-Data/people.json';
 // import Poke from './Components/Data-Requests/Poke';
-// import Counter from './Components/States/Counter';
+import {
+  BrowserRouter as Router, Link, Route, Routes,
+} from 'react-router-dom';
+import Counter from './Components/States/Counter';
 // import OMDB from './Components/Data-Requests/OMDB';
 import SearchableList from './Components/Lifting-State/SearchableList';
+import Home from './Components/Routing/Home';
+import Navigation from './Components/Routing/Navigation';
+import ParamsExample from './Components/Routing/ParamsExample';
 
 function App() {
   return (
     <div className="App">
+      <Router>
+        <header>
+          <h1>I AM A HEADER</h1>
+        </header>
+        <nav>
+          <Link to="/home">
+            Home
+          </Link>
+          <Link to="/liftingState">
+            <button type="button">Lifting State</button>
+          </Link>
+          <Link to="/state">
+            State
+          </Link>
+          <Navigation />
+        </nav>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/state" element={<Counter />} />
+          <Route path="/liftingState" element={<SearchableList />} />
+          <Route path="/params/:colour" element={<ParamsExample />} />
+        </Routes>
+        <footer>
+          I AM A FOOTER
+        </footer>
+      </Router>
       {/* <Me name="Jordan" age={28} job="Trainer"/> */}
       {/* {Me({ name: "JH", age: 28, job: "Trainer"})} */}
       {/* {Heading()} */}
@@ -34,7 +66,6 @@ function App() {
       } */}
       {/* <Poke /> */}
       {/* <OMDB /> */}
-      <SearchableList />
     </div>
   );
 }

@@ -1,23 +1,48 @@
+/* eslint-disable no-debugger */
 import { useState } from 'react';
+import { v4 } from 'uuid';
+import Item from './Item';
 import SearchBar from './SearchBar';
 
 function SearchableList() {
-  const [items, setItems] = useState(['milk', 'eggs', 'bread']);
+  const [items, setItems] = useState([{
+    name: 'milk',
+    quantity: 1,
+  }, {
+    name: 'eggs',
+    quantity: 1,
+  }, {
+    name: 'bread',
+    quantity: 1,
+  }]);
   const [search, setSearch] = useState('');
   const [newItem, setNewItem] = useState('');
 
-  const addNewItem = (event) => {
-    event.preventDefault();
-    setItems((currentItems) => [...currentItems, newItem]); // ?
-    setNewItem('');
-  };
-
   const removeItem = (index) => {
-    // eslint-disable-next-line no-debugger
-    debugger;
     const cloneItems = [...items];
     cloneItems.splice(index, 1);
     setItems(cloneItems);
+  };
+
+  const changeQuantity = (index, changeInQuantity) => {
+    const cloneItems = [...items];
+    cloneItems[index].quantity += changeInQuantity;
+    if (cloneItems[index].quantity === 0) return removeItem(index);
+    return setItems(cloneItems);
+  };
+
+  const addNewItem = (event) => {
+    event.preventDefault();
+    const cloneItems = [...items]; // ?
+    for (let i = 0; i < cloneItems.length; i += 1) {
+      if (cloneItems[i].name === newItem) {
+        cloneItems[i].quantity += 1;
+        return setItems(cloneItems);
+      }
+    }
+
+    setItems((currentItems) => [...currentItems, { name: newItem, quantity: 1 }]);
+    return setNewItem('');
   };
 
   return (
@@ -33,12 +58,15 @@ function SearchableList() {
       <SearchBar text={search} changeHandler={(e) => setSearch(e.target.value)} />
       {
             items
-              .filter((item) => item.toLowerCase().startsWith(search.toLowerCase()))
-              .map((item, i) => (
-                <p>
-                  {`${item} `}
-                  <button type="button" onClick={() => removeItem(i)}>X</button>
-                </p>
+              .filter(({ name }) => name.toLowerCase().startsWith(search.toLowerCase()))
+              .map(({ name, quantity }, index) => (
+                <Item
+                  key={v4()}
+                  name={name}
+                  quantity={quantity}
+                  handleClick={() => removeItem(index)}
+                  changeQuantity={(change) => changeQuantity(index, change)}
+                />
               ))
         }
     </div>
