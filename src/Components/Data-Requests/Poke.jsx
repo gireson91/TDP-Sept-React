@@ -30,19 +30,22 @@ function Poke() {
       {poke ? (
         <>
           <h2>{poke.name}</h2>
-          <img style={{ float: 'left' }} src={poke.sprites.front_shiny} alt="pokemon" />
-          <section>
-            <p>
+          <section id="pokeGrid">
+            <img src={poke.sprites.front_shiny} alt="pokemon" />
+            <p style={{ gridRowStart: 1 }}>
               Height:
-              {poke.height}
+              {' '}
+              <span>{poke.height}</span>
             </p>
-            <p>
+            <p style={{ gridRowStart: 2 }}>
               Weight:
-              {poke.weight}
+              {' '}
+              <span>{poke.weight}</span>
             </p>
-            <p>
+            <p style={{ gridRowStart: 3 }}>
               Types:
-              {`${poke.types[0].type.name}`}
+              {' '}
+              <span>{poke.types[0].type.name}</span>
             </p>
           </section>
         </>
