@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import {
   BrowserRouter as Router, Link, Route, Routes,
 } from 'react-router-dom';
 import {
-  Button, Col, Container, Nav, Row,
+  Col, Container, Nav, Row,
 } from 'react-bootstrap';
 import Poke from './Components/Data-Requests/Poke';
 import Counter from './Components/States/Counter';
@@ -23,13 +24,13 @@ function App() {
           <Container>
             <Row>
               <Col>
-                <Nav.Link href="/home">
+                <Link className="nav-link" to="/home">
                   Home
-                </Nav.Link>
+                </Link>
               </Col>
               <Col>
-                <Link to="/liftingState">
-                  <Button variant="primary" type="button">Lifting State</Button>
+                <Link className="nav-link" to="/liftingState">
+                  Lifting State
                 </Link>
               </Col>
               <Col>
@@ -38,17 +39,17 @@ function App() {
                 </Link>
               </Col>
               <Col>
-                <Link to="/staticData">
+                <Link className="nav-link" to="/staticData">
                   Static Data
                 </Link>
               </Col>
               <Col>
-                <Link to="/dataRequests/example">
-                  Data Req - Example
+                <Link className="nav-link" to="/dataRequests/example">
+                  Data Req
                 </Link>
               </Col>
               <Col>
-                <Link to="/filmSearch">
+                <Link className="nav-link" to="/filmSearch">
                   Film Search
                 </Link>
               </Col>
@@ -60,9 +61,6 @@ function App() {
 
         </Nav>
         <br />
-        <header>
-          <h1>I AM A HEADER</h1>
-        </header>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/state" element={<Counter />} />
@@ -73,12 +71,7 @@ function App() {
           <Route path="/filmDetails/:id" element={<FilmDetails />} />
           <Route path="/params/:colour" element={<ParamsExample />} />
         </Routes>
-        <footer>
-          I AM A FOOTER
-        </footer>
       </Router>
-      {/* <Converter/> */}
-      {/* <TrueFalse/> */}
     </div>
   );
 }

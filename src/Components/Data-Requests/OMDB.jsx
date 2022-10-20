@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import {
-  Button, Col, Container, Form,
+  Button, Col, Container, Form, InputGroup,
 } from 'react-bootstrap';
 import Film from './Film';
 
@@ -20,15 +20,17 @@ function OMDB() {
 
   return (
     <>
-      <Form>
+      <Form className="m-4">
         <Form.Group controlId="filmTitle">
           <Form.Label>Title:</Form.Label>
-          <Form.Control type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <InputGroup>
+            <Form.Control type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <Button variant="primary" type="submit" onClick={searchFilms}>SEARCH</Button>
+          </InputGroup>
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={searchFilms}>SEARCH</Button>
       </Form>
       <Container>
-        <div className="row row-cols-3 g-4">
+        <div className="row row-cols-4 g-4">
           {
           films.map((film) => (
             <Col>

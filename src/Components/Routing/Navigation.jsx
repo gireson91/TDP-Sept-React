@@ -1,14 +1,15 @@
 import { useState } from 'react';
+import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 function Navigation() {
   const [address, setAddress] = useState('');
   const navigate = useNavigate();
   return (
-    <div>
-      <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-      <button type="button" onClick={() => navigate(address)}>Go TO</button>
-    </div>
+    <InputGroup>
+      <FormControl type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+      <Button type="button" onClick={() => navigate(address)}>GO TO</Button>
+    </InputGroup>
   );
 }
 

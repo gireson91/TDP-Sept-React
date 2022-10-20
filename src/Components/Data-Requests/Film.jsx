@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 function Film({
@@ -7,14 +7,14 @@ function Film({
 }) {
   const navigate = useNavigate();
 
+  const handleClick = details ? () => navigate(`/filmDetails/${id}`) : false;
+
   return (
-    <Card>
+    <Card className="h-100" onclick={handleClick}>
       <Card.Img src={poster} alt="A film" />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{`Year: ${year}`}</Card.Text>
-        {details && <Button variant="primary" type="button" onClick={() => navigate(`/filmDetails/${id}`)}>Details</Button>}
-
       </Card.Body>
     </Card>
   );
