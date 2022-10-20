@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import Heading from './Heading';
 
 function Film({
   id, title, year, poster, details,
@@ -8,14 +8,15 @@ function Film({
   const navigate = useNavigate();
 
   return (
-    <>
-      <Heading text={title} />
-      <p>
-        {`Year: ${year}`}
-      </p>
-      <img src={poster} alt="A film" />
-      {details && <button type="button" onClick={() => navigate(`/filmDetails/${id}`)}>Details</button>}
-    </>
+    <Card>
+      <Card.Img src={poster} alt="A film" />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{`Year: ${year}`}</Card.Text>
+        {details && <Button variant="primary" type="button" onClick={() => navigate(`/filmDetails/${id}`)}>Details</Button>}
+
+      </Card.Body>
+    </Card>
   );
 }
 
