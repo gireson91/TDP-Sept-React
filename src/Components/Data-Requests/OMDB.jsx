@@ -2,14 +2,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import Film from './Film';
 
-const key = '335035be';
+import CONSTS from '../../consts.json';
 
 function OMDB() {
   const [title, setTitle] = useState('');
   const [films, setFilms] = useState([]);
 
   const searchFilms = async () => {
-    const res = await axios.get(`http://www.omdbapi.com/?apikey=${key}&s=${title}`);
+    const res = await axios.get(`http://www.omdbapi.com/?apikey=${CONSTS.API_KEY}&s=${title}`);
     console.log('RES:', res);
     setFilms(res.data.Search);
   };
@@ -23,9 +23,11 @@ function OMDB() {
         films.map((film) => (
           <Film
             key={film.imdbID}
+            id={film.imdbID}
             title={film.Title}
             year={film.Year}
             poster={film.Poster}
+            details
           />
         ))
       }

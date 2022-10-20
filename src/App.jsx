@@ -10,6 +10,7 @@ import Home from './Components/Routing/Home';
 import Navigation from './Components/Routing/Navigation';
 import ParamsExample from './Components/Routing/ParamsExample';
 import People from './Components/Static-Data/People';
+import FilmDetails from './Components/Routing/FilmDetails';
 
 function App() {
   return (
@@ -31,8 +32,8 @@ function App() {
           <Link to="/dataRequests/example">
             Data Req - Example
           </Link>
-          <Link to="/dataRequests/solution">
-            Data Req - Solution
+          <Link to="/filmSearch">
+            Film Search
           </Link>
           <Navigation />
         </nav>
@@ -46,7 +47,8 @@ function App() {
           <Route path="/staticData" element={<People />} />
           <Route path="/liftingState" element={<SearchableList />} />
           <Route path="/dataRequests/example" element={<Poke />} />
-          <Route path="/dataRequests/solution" element={<OMDB />} />
+          <Route path="/filmSearch" element={<OMDB />} />
+          <Route path="/filmDetails/:id" element={<FilmDetails />} />
           <Route path="/params/:colour" element={<ParamsExample />} />
         </Routes>
         <footer>
