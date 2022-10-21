@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import Poke from './Components/Data-Requests/Poke';
 import Counter from './Components/States/Counter';
+import Converter from './Components/States/Converter';
 import OMDB from './Components/Data-Requests/OMDB';
 import SearchableList from './Components/Lifting-State/SearchableList';
 import Home from './Components/Routing/Home';
@@ -15,6 +16,7 @@ import Navigation from './Components/Routing/Navigation';
 import ParamsExample from './Components/Routing/ParamsExample';
 import People from './Components/Static-Data/People';
 import FilmDetails from './Components/Routing/FilmDetails';
+import Testing from './Testing';
 
 function App() {
   return (
@@ -53,6 +55,11 @@ function App() {
                   Film Search
                 </Link>
               </Col>
+              <Col>
+                <Link className="nav-link" to="/testing">
+                  Testing
+                </Link>
+              </Col>
               <Col lg={3}>
                 <Navigation />
               </Col>
@@ -70,6 +77,12 @@ function App() {
           <Route path="/filmSearch" element={<OMDB />} />
           <Route path="/filmDetails/:id" element={<FilmDetails />} />
           <Route path="/params/:colour" element={<ParamsExample />} />
+          <Route path="testing" element={<Testing />}>
+            <Route path="ex1" element={<Converter />} />
+            <Route path="ex2" element={<Counter />} />
+            <Route path="ex3" element={<OMDB />} />
+          </Route>
+
         </Routes>
       </Router>
     </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button, FormControl, InputGroup } from 'react-bootstrap';
 
 function Counter() {
   const [counter, setCounter] = useState({
@@ -32,9 +33,20 @@ function Counter() {
 
   return (
     <>
-      <input type="number" value={counter.count} onChange={handleChange} />
-      <button type="button" onClick={handleClick}>+1</button>
-      <button type="button" onClick={handleClick}>-1</button>
+      <ul>
+        <li>Smash that +1 button a few times</li>
+        <li>
+          Check that the value in counter is correct
+        </li>
+        <li>Extension (come back after Ex 3): Run through the history and check each value</li>
+      </ul>
+      <InputGroup style={{ maxWidth: '30%' }}>
+        <Button variant="danger" type="button" onClick={handleClick}>-5</Button>
+        <Button variant="danger" type="button" onClick={handleClick}>-1</Button>
+        <FormControl style={{ textAlign: 'center' }} type="number" value={counter.count} onChange={handleChange} readOnly />
+        <Button variant="success" type="button" onClick={handleClick}>+1</Button>
+        <Button variant="success" type="button" onClick={handleClick}>+5</Button>
+      </InputGroup>
       {/* <button onClick={() => setCount(0)}>reset</button> */}
       <h2>History:</h2>
       <div>

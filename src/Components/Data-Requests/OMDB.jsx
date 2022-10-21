@@ -20,6 +20,11 @@ function OMDB() {
 
   return (
     <>
+      <ul>
+        <li>Search for a film</li>
+        <li>Check what the first film in the list is</li>
+        <li>Extension: click through to the details page and check the title is correct</li>
+      </ul>
       <Form className="m-4">
         <Form.Group controlId="filmTitle">
           <Form.Label>Title:</Form.Label>

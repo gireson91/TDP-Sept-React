@@ -18,7 +18,7 @@ function FilmDetails() {
     searchFilm();
   }, [id]);
 
-  if (film) return <Film key={id} title={film.Title} year={film.Year} poster={film.Poster} />;
+  if (film) return <div style={{ maxWidth: '20%', textAlign: 'center', margin: 'auto' }}><Film key={id} title={film.Title} year={film.Year} poster={film.Poster} /></div>;
   return false;
 }
 
